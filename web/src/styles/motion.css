@@ -1,0 +1,325 @@
+@keyframes attention-stripes {
+  to {
+    background-position: 48px 0;
+  }
+}
+@keyframes stripes {
+  to {
+    background-position: 22.6274px 0;
+  }
+}
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+[data-paused="true"] .button.busy:before,
+:root[data-hidden="true"] .button.busy:before,
+[data-paused="true"] .attention-surface:before,
+:root[data-hidden="true"] .attention-surface:before {
+  animation-play-state: paused;
+}
+@keyframes panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes dialog-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 8px)) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes dialog-exit {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 4px)) scale(0.99);
+  }
+}
+@keyframes drawer-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes drawer-exit {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes check-enter {
+  from {
+    opacity: 0;
+    scale: 0.75;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes accordion-open {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+@keyframes accordion-close {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+@keyframes loading-breathe {
+  50% {
+    opacity: 0.48;
+  }
+}
+.button {
+  transition:
+    background var(--motion-fast) ease,
+    color var(--motion-fast) ease,
+    border-color var(--motion-fast) ease,
+    transform var(--motion-fast) var(--motion-ease);
+}
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.button > span > svg {
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+.button.primary:hover:not(:disabled) > span > svg.lucide-arrow-right,
+.button.primary:hover:not(:disabled) > span > svg.lucide-chevron-right {
+  transform: translateX(2px);
+}
+.button.icon-button:hover > span > svg {
+  transform: none;
+}
+.switch:before,
+.checkbox,
+.radio,
+.select-trigger,
+input,
+textarea,
+.category-tabs button,
+.tabs > button,
+.sidebar nav button,
+.nav-drawer nav button,
+.dropdown-menu [role="menuitem"],
+.dropdown-menu [role="menuitemcheckbox"],
+.dropdown-menu [role="menuitemradio"],
+.select-item {
+  transition:
+    background var(--motion-base) ease,
+    color var(--motion-base) ease,
+    border-color var(--motion-base) ease;
+}
+.switch-thumb {
+  transition:
+    transform var(--motion-base) var(--motion-ease),
+    scale var(--motion-fast) var(--motion-ease);
+}
+.switch:active:not(:disabled) .switch-thumb {
+  scale: 0.92;
+}
+.checkbox[data-state="checked"] > span,
+.checkbox[data-state="indeterminate"] > span,
+.radio[data-state="checked"] > span {
+  animation: check-enter var(--motion-fast) var(--motion-ease);
+}
+.slider [role="slider"] {
+  transition:
+    background var(--motion-base),
+    scale var(--motion-fast);
+}
+.slider [role="slider"]:active {
+  scale: 1.08;
+}
+.swatch {
+  transition:
+    border-color var(--motion-base),
+    transform var(--motion-base) var(--motion-ease);
+}
+.swatch:active {
+  transform: translateY(1px);
+}
+.swatch svg {
+  animation: check-enter var(--motion-fast) var(--motion-ease);
+}
+.overview-links > button,
+.widget-card,
+.metric,
+.badge,
+.attention-panel {
+  transition:
+    border-color var(--motion-base),
+    background-color var(--motion-base),
+    color var(--motion-base);
+}
+.overview-links > button > svg:last-child {
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+.overview-links > button:hover > svg:last-child {
+  transform: translate(2px, -2px);
+}
+.page-content {
+  animation: panel-enter var(--motion-enter) var(--motion-ease);
+}
+.section {
+  animation: panel-enter var(--motion-enter) var(--motion-ease) both;
+}
+.section:nth-child(2) {
+  animation-delay: 30ms;
+}
+.section:nth-child(3) {
+  animation-delay: 50ms;
+}
+.tabs + [data-state="active"],
+.feedback-copy,
+.configuration-step,
+.widget-preview,
+.demo-status [role="status"],
+.error-text,
+.message[role="status"] {
+  animation: panel-enter var(--motion-base) var(--motion-ease);
+}
+.accordion [role="region"] {
+  overflow: hidden;
+}
+.accordion [role="region"][data-state="open"] {
+  animation: accordion-open 220ms var(--motion-ease);
+}
+.accordion [role="region"][data-state="closed"] {
+  animation: accordion-close 140ms ease-out;
+}
+.accordion-inner {
+  padding-bottom: 24px;
+}
+.accordion .accordion-inner p {
+  margin-bottom: 0;
+}
+.accordion h3 button > svg {
+  transition: transform var(--motion-base) var(--motion-ease);
+}
+.overlay[data-state="open"] {
+  animation: fade var(--motion-base) ease-out;
+}
+.overlay[data-state="closed"] {
+  animation: fade-out var(--motion-fast) ease-in;
+  pointer-events: none;
+}
+.dialog[data-state="open"] {
+  animation: dialog-enter var(--motion-enter) var(--motion-ease);
+}
+.dialog[data-state="closed"] {
+  animation: dialog-exit var(--motion-fast) ease-in;
+  pointer-events: none;
+}
+.nav-drawer[data-state="open"] {
+  animation: drawer-enter var(--motion-enter) var(--motion-ease);
+}
+.nav-drawer[data-state="closed"] {
+  animation: drawer-exit var(--motion-fast) ease-in;
+  pointer-events: none;
+}
+.select-menu[data-state="open"],
+.dropdown-menu[data-state="open"],
+.tooltip[data-state="delayed-open"],
+.tooltip[data-state="instant-open"] {
+  animation: panel-enter var(--motion-base) var(--motion-ease);
+}
+.select-menu[data-state="closed"],
+.dropdown-menu[data-state="closed"],
+.tooltip[data-state="closed"] {
+  animation: fade-out var(--motion-fast) ease-in;
+  pointer-events: none;
+}
+.toast[data-state="open"] {
+  animation: panel-enter var(--motion-enter) var(--motion-ease);
+}
+.toast[data-state="closed"] {
+  animation: fade-out var(--motion-fast) ease-in;
+  pointer-events: none;
+}
+.entity-row,
+tbody tr {
+  transition: background var(--motion-fast) ease;
+}
+.entity-row:has([data-state="checked"]) {
+  background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+}
+.skeleton-card > span {
+  animation: loading-breathe 1800ms ease-in-out infinite;
+}
+.skeleton-card > span:nth-child(2) {
+  animation-delay: 100ms;
+}
+.skeleton-card > span:nth-child(3) {
+  animation-delay: 200ms;
+}
+:root[data-hidden="true"] .skeleton-card > span {
+  animation-play-state: paused;
+}
+:root[data-reduced="true"] *,
+:root[data-reduced="true"] *:before,
+:root[data-reduced="true"] *:after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
